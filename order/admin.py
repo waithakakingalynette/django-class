@@ -1,16 +1,9 @@
 from django.contrib import admin
-
+from.models import Order
 # Register your models here.
-from .models import Order
-class Order_Admin(admin.ModelAdmin):
-    list_display=('name','customer_id','quantity','price')
 
-admin.site.register(Order, Order_Admin)
+class OderAdmin(admin.ModelAdmin):
+    list_display =('order_number','customer_name','customer_email','customer_phone_number','order_date','order_status')
 
 
-# customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
-#   basket = models.ForeignKey(Cart, on_delete=models.CASCADE)
-#   shipment = models.OneToOneField(Delivery, on_delete=models.CASCADE)
-
-
-    
+admin.site.register(Order,OderAdmin)  
