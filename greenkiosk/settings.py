@@ -68,7 +68,7 @@ ROOT_URLCONF = 'greenkiosk.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,"templetes")],
+        'DIRS': [os.path.join(BASE_DIR,"templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,6 +80,8 @@ TEMPLATES = [
         },
     },
 ]
+
+
 
 WSGI_APPLICATION = 'greenkiosk.wsgi.application'
 
@@ -93,6 +95,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+MEDIA_ROOT=os.path.join(BASE_DIR,'product_images')
+MEDIA_URL='/product_images/'
 
 
 # Password validation
