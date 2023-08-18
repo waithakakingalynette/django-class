@@ -3,53 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer List</title>
+    <title>Mama Mboga - All Customers</title>
     <style>
-        /* Add your custom CSS styling here */
-        .product-container {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin-bottom: 10px;
-            margin-left: 20px;
-        }        .product-name {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }        .product-description {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 5px;
-        }        .product-price {
-            font-size: 16px;
-            color: green;
-        }        .view-details {
-            font-size: 14px;
-            color: green;
-        }
-        .allproducts{
-            display: grid;
-            grid-template-columns: repeat(6,1fr);
-            gap: 30px;        }
-        .img{
-            width: 200px;
-            height: 150px;
-        }
-        a{
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F5F5F5
+;
+        }        h1 {
+            text-align: center;
+            margin-top: 30px;
+            color: #333;
+        }        .customer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px auto;
+            max-width: 1200px;
+        }        .customer-card {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            padding: 20px;
+            text-align: center;
+            width: 250px;
+        }        .customer-card img {
+            max-width: 100%;
+            border-radius: 50%;
+        }        h3 {
+            margin-top: 10px;
+            color: #333;
+        }        p {
+            color: #777;
+            margin-top: 5px;
+        }        .email {
+            color: #555;
+            margin-top: 10px;
+        }        .edit,
+        .view-button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 5px 10px;
+            background-color: #007BFF
+;
+            color: #fff;
             text-decoration: none;
-            color: green;        }
+            border-radius: 3px;
+            transition: background-color 0.3s ease;
+        }        .edit:hover,
+        .view-button:hover {
+            background-color: #0056B3
+;
+        }
     </style>
 </head>
 <body>
-
-    <div class="allcustomers">
-        {% for customer in customers %}
-            <div class="customer-container">
-                <img src="{{ customer.image.url }}" class="img" alt="{{ customer.name }} image">
-                <h1 class="customer-name">{{ customer.name }}</h1>
-                <h4 class="customer-phone">{{ customer.phone }}</h4>
-                <h4 class="customer-email">{{ customer.email }}</h4>
-                <h4><a href="{% url 'customer_detail_view' id=customer.id %}">View Details</a></h4>
-                <a href="{% url 'customer_update' id=customer.id %}">Edit Product</a>
-            </div> 
-        {% endfor %}
-    </div> 
+    <h1>Mama Mboga - All Customers</h1>    <div class="customer-container">
+       {% for customer in customers %}
+       <div class="customer-card">
+           <img src="{{ customer.image.url }}" alt="{{ customer.image}}" />
+           <h3>{{ customer.first_name }}</h3>
+           <p>{{ customer.last_name }}</p>
+           <p class="email">{{ customer.email }}</p>
+           <a href="{% url 'customer_update' id=customer.id %}" class="edit">Edit Details</a>
+           <a href="{% url 'customer_detail_view' id=customer.id %}" class="view-button">View Details</a>
+       </div>
+       {% endfor %}
+   </div></body>
+</html>

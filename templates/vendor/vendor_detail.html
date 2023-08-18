@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Vendor details</h3>
+    <table>
+        <th>
+            <td>name</td>
+            <td>email</td>
+            <td>image</td>
+            <td>phone_number</td>
+            <td>date_created</td>
+        </th>
+        {%for vendor in vendor %}
+        <tr>
+            <img src="{{vendor.image.url}}" alt="vendor image"/>
+            <td>{{vendor.name}}</td>
+            <td>{{vendor.email}}</td>
+            <td>{{vendor.image}}</td>
+            <td>{{vendor.phone_number}}</td>
+            <td>{{vendor.date_created}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

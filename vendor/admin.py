@@ -1,7 +1,6 @@
 from django.contrib import admin
-from vendor.models import Vendor
-
+# Register your models here.
+from .models import Vendor
 class VendorAdmin(admin.ModelAdmin):
-    list_display = ('name', 'phone', 'email', 'image')
-
-admin.site.register(Vendor, VendorAdmin)
+        list_display=("name","email","phone_number","image","date_created")
+admin.site.register(Vendor,VendorAdmin)

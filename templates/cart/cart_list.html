@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4;">
+
+<h1 style="text-align: center; margin-top: 20px;">Shopping Cart</h1>
+<ul style="list-style: none; display: flex; justify-content: space-between; flex-wrap: wrap;">
+    {% for cart_item in cart_items %}
+    <li style="width: 30%; padding: 20px; background-color: #fff; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); margin: 10px; text-align: center;">
+        {% if cart_item.image %}
+        <img src="{{ cart_item.image.url }}" alt="Image" style="max-width: 100%; height: auto;"/><br>
+        {% else %}
+        No Image Available<br>
+        {% endif %}
+        <strong>Name:</strong> {{ cart_item.name }}<br>
+        <strong>Quantity:</strong> {{ cart_item.quantity_of_items }}<br>
+        <strong>Price:</strong> ${{ cart_item.price }}<br>
+        <a href="{% url 'remove_cart_item' cart_item_id=cart_item.id %}" style="text-decoration: none; color: #333;">Remove</a><br>
+    </li>
+    {% endfor %}
+</ul>
+</body>
+</html>
+
+
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    ul{
+        list-style: none;
+        justify-content: space-between;
+    }
+</style><body>
+<!--  -->
+<h1>Shopping Cart</h1>
+    <ul >
+        {% for cart_item in cart_items %}
+        <li>
+            {% if cart_item.image %}
+            <img src="{{cart_item.image.url}}" alt="Image"/> <br>
+            {% else %}
+            No Image Available
+        {% endif %}
+              Name: {{ cart_item.name }} <br>
+              Quantity: {{ cart_item.quantity_of_items}}  <br>
+              Price: ${{ cart_item.price }} <br>
+              <a href="{% url 'remove_cart_item' cart_item_id=cart_item.id %}">Remove</a> <br>     
+               </li>
+        {% endfor %}
+    </ul>
+        <!-- ............ -->
+</body>
+</html> {% endcomment %}

@@ -14,11 +14,11 @@ def customer_upload_view(request):
 
 def customer_list_view(request):
     customer= Customer.objects.all()
-    return render(request,"customer/customer_list.html",{"products":customer})
+    return render(request,"customer/customer_list.html",{"customers":customer})
 
 def customer_detail(request,id):
     customer= Customer.objects.get(id=id)
-    return render(request,"customer/customer_detail.html",{"product":customer})
+    return render(request,"customer/customer_detail.html",{"customer":customer})
 
 def customer_update_view(request,id):
     customer= Customer.objects.get(id=id)

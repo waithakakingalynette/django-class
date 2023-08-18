@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        h3 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+        a:hover {
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h3>Vendor List</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Image</th>
+            <th>Phone Number</th>
+            <th>Date Created</th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for vendor_item in vendors %}
+        <tr>
+            <td>{{ vendor_item.name }}</td>
+            <td>{{ vendor_item.email }}</td>
+            <td>{{ vendor_item.image }}</td>
+            <td>{{ vendor_item.phone_number }}</td>
+            <td>{{ vendor_item.date_created }}</td>
+            <td><a href="{% url 'vendor_detail_view' id=vendor_item.id %}">View Vendor</a></td>
+            <td><a href="{% url 'edit_vendor_view' id=vendor_item.id %}">Edit Vendor</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Vendor List</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Image</th>
+            <th>Phone Number</th>
+            <th>Date Created</th>
+        </tr>
+        {% for vendor_item in vendors %}
+        <tr>
+            <td>{{ vendor_item.name }}</td>
+            <td>{{ vendor_item.email }}</td>
+            <td>{{ vendor_item.image }}</td>
+            <td>{{ vendor_item.phone_number }}</td>
+            <td>{{ vendor_item.date_created }}</td>
+            <td><a href="{% url 'vendor_detail_view' id=vendor_item.id %}">View Vendor</a></td>
+            <td><a href="{% url 'edit_vendor_view' id=vendor_item.id %}">Edit Vendor</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html> {% endcomment %}

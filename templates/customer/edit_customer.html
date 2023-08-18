@@ -6,10 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    <form method="POST" class="edit_customer">
+    <h2>EDIT Customer DETAILS</h2>
+    <form method="POST" class="upload-form">
         {%csrf_token%}
-        {{form.as_p}}  
-        <button type="submit" class="btn">Save</button>
-    </form>
+        {{form.as_p}}        <button type="submit">Save</button>
+         </form>
 </body>
 </html>
